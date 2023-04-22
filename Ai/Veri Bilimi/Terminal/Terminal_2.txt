@@ -1,0 +1,133 @@
+man ==> Man komutu hangi komutun ne işe yaradığını gösterir
+    /man command
+"Bazı komutlar"
+    /truncate -s 0 test.txt (bir dosyanın içeriğini siler)
+    /for
+        >>do
+        >><command>
+        >>done (bir işlemi tekrarlamak için kullanılır)
+    /lsb_release -a (ubuntu sürümünü yazdırır)
+    /ssh <name>@<ip> (bir bilgisayara bağlanma) #https://linuxhint.com/access-another-computer-on-the-same-network-with-linux/
+    /gnome-control-center (ayarları açar)
+    /sudo dpkg -i <packet.deb> (deb paketini kurar)
+    \X display açmak
+        /sudo apt-get install -y xvfb (xvfb indirme)
+        /sudo apt-get -y install xorg xvfb gtk2-engines-pixbuf ("Başsız" krom/selenyum çalışması yapmak için bağımlılıklar)
+        /sudo apt-get -y install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable ("Başsız" krom/selenyum çalışması yapmak için bağımlılıklar)
+        /sudo apt-get -y install imagemagick x11-apps (Xvfb ekranının ekran görüntülerini yakalamak için)
+        /Xvfb -ac :99 -screen 0 1280x1024x16 & (Kutu/vm her önyüklendiğinde Xvfb'nin başladığından emin olun)
+        /export DISPLAY=:99 (Kutu/vm her önyüklendiğinde Xvfb'nin başladığından emin olun)
+    /GTK_THEME=Adwaita:<color> <app-name> (bir uygulamayı istediğin renkte açmak)
+    /du -bsh <file (Geçerli dizindeki tüm dosya ve dizinlerin görünen(-b) özetlenmiş(-s) boyutunu insan tarafından okunabilir(-h) biçiminde verir)
+    \Dosya transferi yapmak
+        /scp <file(gönderilecek dosya)> user_name@ip:<path(dosyanın gideceği yer)> (dosya gönderme işlemi)
+        /scp user_name@ip:<path(indirilecek dosya)> <path (dosyaanın indirileceği yer)>
+    /talk ==> https://www.geeksforgeeks.org/talk-command-in-linux/
+"İlginç komutlar"
+    /fortune
+        #https://en.wikipedia.org/wiki/Fortune_(Unix)#External_links
+    /cowsay
+        #https://en.wikipedia.org/wiki/Cowsay
+ls ==> Bir klasörün içinde, ls komutunu kullanarak klasörün içerdiği tüm dosyaları listeleyebilirsiniz.Bir klasör adı veya yolu eklerseniz, o klasörün içeriğini yazdıracaktır.
+    /ls 
+cd ==> Bir klasörünüz olduğunda, cd komutunu kullanarak içine taşıyabilirsiniz. cd dizini değiştir demektir. Taşınacak bir klasör belirterek onu çağırırsınız. Bir klasör adı veya tüm yolu belirtebilirsiniz.
+    /cd path
+pwd ==> Dosya sisteminde kaybolduğunuzu hissettiğinizde, nerede olduğunuzu öğrenmek için pwd komutunu çağırın.
+    /pwd
+mkdir ==> Klasörleri mkdir komutunu kullanarak oluşturursunuz.-p seçeneğini ekleyerek birden çok iç içe klasör oluşturabilirsiniz.
+    /mkdir path
+rmdir ==> Nasıl mkdir kullanarak bir klasör oluşturabiliyorsanız, rmdir kullanarak da bir klasörü silebilirsiniz.İçinde dosya bulunan klasörleri silmek için, -rf seçeneğini kullanarak dosyaları ve klasörleri silen daha genel rm komutunu kullanacağız.
+    /rmdir path (dosya boşsa siler) 
+    /rm -rf path (bütün içeriği siler)
+mv ==> Bir dosyanız olduğunda, onu mv komutunu kullanarak taşıyabilirsiniz. Dosyanın geçerli yolunu ve yeni yolunu siz belirlersiniz.
+    /mv path
+cp ==> Bir dosyayı cp komutunu kullanarak kopyalayabilirsiniz.
+    /cp <kopyalanack dosya> <oluşturulacak dosya> 
+open ==> Open komutu, bu sözdizimini kullanarak bir dosyayı açmanıza izin verir. 'open .' ile içinde bulunduğun dizini açar.
+    /open path
+touch ==> touch komutunu kullanarak boş bir dosya oluşturabilirsiniz.
+    /touch path
+find ==> Bul komutu, belirli bir arama modeliyle eşleşen dosya veya klasörleri bulmak için kullanılabilir. Özyinelemeli olarak arar.Kabuğun bunları yorumlamasını önlemek için * gibi özel karakterlerin etrafında tırnak işaretleri kullanmak önemlidir."find . -type d -name src"
+ln ==> Bağlantı oluşturmak için kullanılır. bağlantı nedir? Başka bir dosyaya giden bir işaretçi veya başka bir dosyaya işaret eden bir dosya gibidir. Windows kısayollarına aşina olabilirsiniz. Benzerler. 2 tür bağlantımız var: hard links ve  soft links   
+    #hard links : Sabit bağlantılar nadiren kullanılır. Birkaç sınırlamaları vardır: dizinlere bağlanamazsınız ve harici dosya sistemlerine (diskler) bağlanamazsınız.Bu sözdizimi kullanılarak bir sabit bağlantı oluşturulur:ln <original> <link>. Oluşturduğunuz yeni sabit bağlantı, normal bir dosyadan ayırt edilemez
+    #soft links : Yumuşak bağlantılar farklıdır. Diğer dosya sistemlerine ve dizinlere bağlanabildiğiniz için daha güçlüdürler. Ancak, orijinal kaldırıldığında bağlantının bozulacağını unutmayın. ln -s <original> <link>
+gzip ==> Gzip komutunu kullanarak LZ77 adlı gzip sıkıştırma protokolünü kullanarak bir dosyayı sıkıştırabilirsiniz. Bu, dosyayı sıkıştıracak ve ona bir .gz uzantısı ekleyecektir. Orijinal dosya silinir.
+    /gzip file (dosyayı zipler)
+    /gzip -c <filename> <filename.gz> (orjinal dosyayı silmez)
+    /gunzip <filename> (zip dosyayı çıkarır)
+tar ==> Tar komutu, birden çok dosyayı tek bir dosyada gruplayarak bir arşiv oluşturmak için kullanılır.tar genellikle sıkıştırılmış bir arşiv oluşturmak ve arşivi sıkıştırmak için kullanılır.
+    / tar -cf <archive.tar> <file name> (arşiv oluşturur) 
+    /tar -xf <archive.tar> (klasördeki dosyaları ayıklar) 
+    /tar -xf <archive.tar> -C <dizin> (klasördeki dosyaları spesifik bir dizine ayıklar) 
+    /tar -czf <archive.tar>.gz <dosya adı>
+alias ==> Bir programı her zaman kullanmaktan hoşlandığınız bir dizi seçeneğe sahip olarak çalıştırmak yaygın bir durumdur.Geçicidir.Kalıcı hale getirmek için kabuk yapılandırmasına eklemeniz gerekir. Bash kabuğunu kullanıyorsanız, kullanım durumuna bağlı olarak bu ~/.bashrc veya ~/.profile veya ~/.bash_profile olabilir.
+    /alias (tanımlanmış aliasları getirir)(terminal oturumu kapanınca çalışmayı durdurur)
+    /alias <name>='<code>' (bir komutu isimlendirir)(terminal oturumu kapanınca çalışmayı durdurur) 
+    /alias <name>="<code $PWD>"(çift tırnak işaretinde değişkenler tanımlandıkları zamanki değerlerini alır, statik)
+    /alias lscurrent='ls $PWD'(tek tırnak işaretinde değişkenler kullanıldıkları zamanki değeri alır, dinamik)
+cat ==> cat bir dosyanın içeriğini standart çıktıya yazdırır. Birden çok dosyanın içeriğini yazdırabilirsiniz. Çıktı yeniden yönlendirme operatörünü kullanarak birden çok dosyanın içeriğini yeni bir dosyada birleştirebilirsiniz.
+    /cat <file> (dosya içeriğini yazdırır) 
+    /cat <file1> <file2> (birden fazla dosyayı yazdırır) 
+    / cat <file1> <file2> > <file3> (dosyaların içeriğini bir dosyada birleştirme)
+    / cat <file1> <file2> >> <file3> (dosyaların içeriğini bir dosyaya ekleme yoksa oluşturma)
+    / cat -n <file> (dosyadaki satırların numarasını gösterir)
+    / cat -b <file> (dosyadaki boş satırların numaralarını boş satırlar hariç gösterir)
+    / cat -n <file> (dosyadaki boş satırları siler)
+    / cat <file> | <command> (bir dosyanın içeriğini başka bir komuta girdi olarak beslemek için)
+less ==> Size güzel ve etkileşimli bir kullanıcı arayüzünde bir dosyanın içinde saklanan içeriği gösterir.Oturuma girdikten sonra, q tuşuna basarak çıkabilirsiniz. Sayfa sayfa gezinmek için yukarı ve aşağı tuşlarını veya boşluk çubuğunu ve b'yi kullanarak dosya içeriğinde gezinebilirsiniz. Ayrıca G'ye basarak dosyanın sonuna atlayabilir ve g'ye basarak başlangıca geri dönebilirsiniz. / tuşuna basarak ve aranacak kelimeyi yazarak dosya içindeki içerikleri arayabilirsiniz. Bu ileriyi arar. ? kullanarak geriye doğru arama yapabilirsiniz. Bu komut sadece dosyanın içeriğini görselleştirir. v tuşuna basarak doğrudan bir düzenleyici açabilirsiniz. Çoğu durumda vim olan sistem düzenleyicisini kullanacaktır.
+    /less <file>
+tail ==> Dosyada her yeni içerik olduğunda, pencerede yazdırılır. Bu, günlük dosyalarını izlemek için harikadır.
+    /tail -f <file> (dosyayı sondan açar ve değişikleri gösterir)
+    /tail -n <number> <file> (dosyadaki number kadar son değişikleri gösterir)
+wc ==> wc komutu bize bir dosya veya borular aracılığıyla aldığı girdi hakkında yararlı bilgiler verir. Döndürülen ilk sütun satır sayısıdır. İkincisi kelime sayısıdır. Üçüncüsü bayt sayısıdır. ASCII karakter kümelerindeki baytlar karakterlere eşittir. Ancak ASCII olmayan karakter kümelerinde, bazı karakterler birden fazla bayt alabileceğinden (örneğin bu Unicode'da olur) karakter sayısı farklılık gösterebilir.
+    /wc <file> (dosyadaki satır, sütün ve kelimeleri yazdırır)
+    /wc -l <file> (sadece satırları yazdırır) 
+    /wc -w <file> (sadece keimeleri yazdırır)
+    /wc -c <file> (sadece baytları yazdırır ancak farklı dosya tiplerinde yanlış değerler verebilir)
+    /wc -m <file> (sadece baytları yazdırır ve bütün dosya tiplerinde çalışır)
+grep ==> grep, genel düzenli ifade baskısı anlamına gelir. Dosyalarda arama yapmak için grep'i kullanabilir veya başka bir komutun çıktısını filtrelemek için onu borularla birleştirebilirsiniz.
+    #grep cheat sheet=https://ryanstutorials.net/linuxtutorial/cheatsheetgrep.php
+    /grep <string> <file> (bir dosya içinde arama yapamanızı sağlar)
+    /grep <string> <file> (bir dosya içinde arama yapamanızı sağlar, -i komutu büyük küçük harfi devre dışı bırakır)
+    /grep -n <string> <file> (bir dosya içinde arama yapamanızı sağlar ve sayıları yazdırır)
+    /grep -nC <number> <string> <file> (bir dosya içinde arama yaparken number kadar satır önce ve sonrasını yazdırır)
+    /grep -n <string> <file> (bir dosya içinde yaptığınız arama dışında kalanları yazdırır)
+sort ==> sort komutu alfabetik sıralama yapar. sort, birçok UNIX komutunun yaptığı gibi yalnızca dosyalar üzerinde çalışmaz, aynı zamanda kanallarla da çalışır. Böylece başka bir komutun çıktısında kullanabilirsiniz.
+    #sort cheat sheet=https://cmdref.net/os/linux/command/sort.html
+    /sort <file> (alfabetik sıralama)
+    /sort -r <file> (alfabetik sıralamayı tersine çevirir)
+    /sort -u <file> (siler)
+uniq ==> uniq, metin satırlarını sıralamanıza yardımcı olan bir komuttur
+    /uniq <file> (her satırı bir defa gösterir)
+    /uniq -d <file> (tekrarlanan satırları gösterir)
+    /uniq -u <file> (tekrarlanmayan satırları gösterir)
+    /uniq -c <file> (satırların tekrarlanma sayılarını gösterir)
+diff ==> diff dosyaları işleyecek ve size farkın ne olduğunu söyleyecektir.
+    /diff <file1> <file2> (dosyalar arasındaki farkı gösterir)
+    /diff -y <file1> <file2> (dosyalar arasındaki farkı satır satır gösterir)
+    /diff -u <file1> <file2> (Git sürüm kontrol sistemi tarafından sürümler arasındaki farkları görüntülemek için kullanılanla aynıdır:)
+    /diff -r <file1> <file2> (dizinler arasındaki farkı satır satır gösterir)
+    /diff -rq <file1> <file2> (hangi dosyanın farklı olduğunu gösterir)
+echo ==> kendisine iletilen bağımsız değişkeni çıktıya yazdırır.
+    /echo "text" (terminale girilen text'i yazdırır)
+    /echo "text" >> <file> (dosyaya text'i ekler)
+    /echo "text $<command>" (değişken kullanabiliriz)
+chown ==> Sahip (ve kök kullanıcı), chown komutunu kullanarak sahibini başka bir kullanıcıyla da değiştirebilir.
+    /chown <owner> <file> (Dizini sahibi ile açma)
+    /chown -R <owner> <file> (Dizinin sahibini değiştirme)
+    /chown <owner>:<group> <file> (Bu komut aracılığıyla, sahibini değiştirirken aynı anda grubu da değiştirebilirsiniz.)
+chgrp ==> Ayrıca bir dosyanın grubunu chgrp komutunu kullanarak da değiştirebilirsiniz.
+    /chgrp <group> <filename>
+chmod ==> Kullanıcı işlemleri
+    #https://www.freecodecamp.org/news/the-linux-commands-handbook/#the-linux-chmod-command
+umask ==> Bir dosya oluşturduğunuzda, izinlere önceden karar vermeniz gerekmez. İzinlerin varsayılanları vardır. Bu varsayılanlar, umask komutu kullanılarak kontrol edilebilir ve değiştirilebilir.
+    #https://www.freecodecamp.org/news/the-linux-commands-handbook/#the-linux-umask-command
+df ==> Disk kullanım bilgilerini almak için df komutu kullanılır. 
+    /df (Disk bilgilerini gösterir)
+    /df -h (-h seçeneğinin (df -h) kullanılması, bu değerleri insan tarafından okunabilir bir biçimde gösterir)
+basename ==> Verdiğiniz dosya yolunun son elamanını gösterir.
+    /basename <path> (dosya yolunun son elamanını döndürür)
+dirname ==> Verdiğiniz dosya yolunun üstündeki dizini gösterir.
+    /dirname <path> (dosyanın üstündeki dizini gösterir)
+ps ==> ps komutu çalışan işlemleri görmemizi sağlar.
+    #https://www.freecodecamp.org/news/the-linux-commands-handbook/#the-linux-ps-command

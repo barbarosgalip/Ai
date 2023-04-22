@@ -1,0 +1,5 @@
+ASCII kodu 
+    #https://blog.r10.net/nedir/ascii-kodlari#:~:text=ASCII%2C%20bilgisayarlar%20aras%C4%B1nda%20metin%20dosyalar%C4%B1n%C4%B1n,ve%20di%C4%9Fer%20semboller%20i%C3%A7in%20kullan%C4%B1l%C4%B1r.
+Git kullanımı
+    #https://www.zdnet.com/article/how-to-get-started-with-git-on-linux/ (dosya yükleme)
+    #https://www.git-tower.com/learn/git/commands/git-rm (dosya silme)
